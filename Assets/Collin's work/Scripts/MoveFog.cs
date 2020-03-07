@@ -51,6 +51,7 @@ public class MoveFog : MonoBehaviour
             // Once the fog has finished moving, load the next scene.
             if (transform.position == endPos)
             {
+                // May have to change the scene this loads to "PrefabBuilding".
                 SceneManager.LoadSceneAsync("Island");
             }
         }
