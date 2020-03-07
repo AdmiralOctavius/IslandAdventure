@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoveFog : MonoBehaviour
 {
@@ -39,6 +40,11 @@ public class MoveFog : MonoBehaviour
             // Actully moving the object.
             transform.position = Vector3.Lerp(startPos, endPos,
                 fractionCompleted);
+            // Once the fog has finished moving, load the next scene.
+            if (transform.position == endPos)
+            {
+                SceneManager.LoadSceneAsync("Island");
+            }
         }
     }
 }
