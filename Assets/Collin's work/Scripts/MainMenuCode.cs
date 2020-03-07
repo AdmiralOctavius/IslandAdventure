@@ -13,7 +13,7 @@ public class MainMenuCode : MonoBehaviour
     public void playGame()
     {
         // Change the scene name for the actual scene.
-        SceneManager.LoadSceneAsync("CollinTestScene");
+        SceneManager.LoadSceneAsync("TitleSequenceScene");
     }
     // This is if how to play button is clicked (toggles the 
     // tutorial screen).

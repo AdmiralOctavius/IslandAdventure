@@ -8,7 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenuScene.unity
     guid: 75fa9661316372349a7c41364f031259
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CollinTestScene.unity
     guid: 632f38bea18a3fc439dd92689cf057be
+  - enabled: 1
+    path: Assets/IzzyStuff/Scenes/Island.unity
+    guid: f9cf6c50df2effb418b67002142f6804
+  - enabled: 1
+    path: Assets/Scenes/TitleSequenceScene.unity
+    guid: aff5e24462e947f45bb770795fae911c
   m_configObjects: {}
