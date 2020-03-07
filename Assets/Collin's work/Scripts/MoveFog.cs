@@ -7,6 +7,8 @@ public class MoveFog : MonoBehaviour
 {
     // Trigger to start the fog.
     public GameObject fogTrigger;
+    // Empty GameObject to be the endpoint of the motion.
+    public GameObject endSpot;
     // Variables to hold the starting and ending positions of the 
     // fog.
     public Vector3 startPos;
@@ -25,12 +27,18 @@ public class MoveFog : MonoBehaviour
     {
         // Take in the starting position.
         startPos = transform.position;
-        endPos = Vector3.zero;
+        endPos = endSpot.transform.position;
     }
 
     // FixedUpdate is called at a fixed time interval.
     void FixedUpdate()
     {
+        // Make sure the fog stays in the right spot.
+        transform.Translate(
+            Camera.main.gameObject.transform.position.x,
+            Camera.main.gameObject.transform.position.y,
+            transform.position.z);
+        // If it's time to start the fog...
         if (startFog)
         {
             // Calculate the distance traveled so far.
