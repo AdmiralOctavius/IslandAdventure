@@ -9,6 +9,8 @@ public class MoveFog : MonoBehaviour
     public GameObject fogTrigger;
     // Empty GameObject to be the endpoint of the motion.
     public GameObject endSpot;
+    // GameObject for a gray screen that appears when the animation is over.
+    public GameObject staticFog;
     // Variables to hold the starting and ending positions of the 
     // fog.
     public Vector3 startPos;
@@ -48,11 +50,17 @@ public class MoveFog : MonoBehaviour
             // Actully moving the object.
             transform.position = Vector3.Lerp(startPos, endPos,
                 fractionCompleted);
+            // Right before the fog finishes moving, activate static fog.
+            if (fractionCompleted <= 1 && fractionCompleted > 0.99)
+            {
+                // Activate the static fog.
+                staticFog.gameObject.SetActive(true);
+            }
             // Once the fog has finished moving, load the next scene.
             if (transform.position == endPos)
             {
-                // May have to change the scene this loads to "PrefabBuilding".
-                SceneManager.LoadSceneAsync("Island");
+                // Load the scene for main game.
+                SceneManager.LoadScene(2);
             }
         }
     }
