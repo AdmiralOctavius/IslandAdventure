@@ -9,6 +9,11 @@ public class MainMenuCode : MonoBehaviour
     public Canvas titleMenu;
     public Canvas tutorialMenu;
 
+    public void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
     // This is if play button is clicked (starts the game).
     public void playGame()
     {

@@ -7,6 +7,7 @@ public class Interact : MonoBehaviour
     // Start is called before the first frame update
     public GameObject parentGameObject;
     public Collider MostRecentObj;
+    public bool Typing = false;
     void Start()
     {
         
@@ -24,6 +25,7 @@ public class Interact : MonoBehaviour
 
             parentGameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().mouseLook.SetCursorLock(false);
             parentGameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().typing = true;
+            Typing = true;
         }
         if (Input.GetButtonDown("Cancel"))
         {
@@ -32,11 +34,20 @@ public class Interact : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;*/
             parentGameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().mouseLook.SetCursorLock(true);
             parentGameObject.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().typing = false;
+            Typing = false;
         }
 
         if (Input.GetButtonDown("Talk"))
         {
-            MostRecentObj.gameObject.GetComponent<AudioSource>().Play();
+            if(Typing == false)
+            {
+                if (MostRecentObj)
+                {
+                    MostRecentObj.gameObject.GetComponent<AudioSource>().Play();
+
+                }
+
+            }
         }
     }
 
