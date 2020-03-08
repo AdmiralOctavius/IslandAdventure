@@ -13,6 +13,8 @@ public class Movement : MonoBehaviour
     private float startTime;
     // Length we have to go.
     private float journeyLength;
+    // Bool for making boat sink in island scene.
+    static bool dockHit = false;
 
     // Start is called before the first frame update.
     private void Start()
@@ -36,5 +38,10 @@ public class Movement : MonoBehaviour
         transform.position = Vector3.Lerp(startPoint.transform
             .position, endPoint.transform.position, 
             fractionCompleted);
+        // Activate dockHit bool.
+        if (transform.position == endPoint.transform.position)
+        {
+            dockHit = true;
+        }
     }
 }
