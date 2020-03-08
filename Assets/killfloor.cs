@@ -19,9 +19,9 @@ public class killfloor : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("got here in kill floor");
         if(other.gameObject.tag == "Player")
         {
+            Debug.Log("got here in kill floor");
             other.gameObject.transform.position = respawn.transform.position;
         }
             

@@ -11583,6 +11583,11 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: c6e260e9a2d5795478cbe6b60054b35d, type: 3}
+    - target: {fileID: 1070861035412923907, guid: 6034c68a717d5e44a9bc8ead17236036,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1070861035412923906, guid: 6034c68a717d5e44a9bc8ead17236036,
         type: 3}
       propertyPath: m_Sprite
@@ -33438,6 +33443,11 @@ PrefabInstance:
     - target: {fileID: 1070861035412923909, guid: 6034c68a717d5e44a9bc8ead17236036,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070861035412923907, guid: 6034c68a717d5e44a9bc8ead17236036,
+        type: 3}
+      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
