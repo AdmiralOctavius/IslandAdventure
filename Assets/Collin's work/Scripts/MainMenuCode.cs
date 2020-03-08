@@ -13,6 +13,7 @@ public class MainMenuCode : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        Screen.SetResolution(384, 216, true);
     }
     // This is if play button is clicked (starts the game).
     public void playGame()
