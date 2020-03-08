@@ -44,7 +44,7 @@ public class MoveFog : MonoBehaviour
         if (startFog)
         {
             // Calculate the distance traveled so far.
-            float distanceTraveled = (Time.time - startTime) * 20 * speed;
+            float distanceTraveled = (Time.time - startTime) * 50 * speed;
             // Turn this into a fraction of the journey completed.
             float fractionCompleted = distanceTraveled / journeyLength;
             // Actully moving the object.
