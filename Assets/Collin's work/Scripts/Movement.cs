@@ -13,6 +13,9 @@ public class Movement : MonoBehaviour
     private float startTime;
     // Length we have to go.
     private float journeyLength;
+    // Bool for making boat sink in island scene.
+    public bool dockHit = false;
+    public AudioSource bonk;
 
     // Start is called before the first frame update.
     private void Start()
@@ -28,13 +31,35 @@ public class Movement : MonoBehaviour
     // FixedUpdate is called at a fixed time interval.
     void FixedUpdate()
     {
-        // Calculate the distance traveled so far.
-        float distanceTraveled = (Time.time - startTime) * 10 * speed;
-        // Turn this into a fraction of the journey completed.
-        float fractionCompleted = distanceTraveled / journeyLength;
-        // Actully moving the object.
-        transform.position = Vector3.Lerp(startPoint.transform
-            .position, endPoint.transform.position, 
-            fractionCompleted);
+        if (!dockHit)
+        {
+            // Calculate the distance traveled so far.
+            float distanceTraveled = (Time.time - startTime) * 10 * speed;
+            // Turn this into a fraction of the journey completed.
+            float fractionCompleted = distanceTraveled / journeyLength;
+            // Actully moving the object.
+            transform.position = Vector3.Lerp(startPoint.transform
+                .position, endPoint.transform.position,
+                fractionCompleted);
+        }
+        // Activate dockHit bool.
+        if (transform.position == endPoint.transform.position)
+        {
+            dockHit = true;
+            bonk.Play();
+        }
+        if (dockHit)
+        {
+            SinkBoat();
+        }
+    }
+
+    public void SinkBoat()
+    {
+        if (transform.position.y >= -5f)
+        {
+            Debug.Log("got here");
+            transform.position = new Vector3(transform.position.x, transform.position.y - 0.25f, transform.position.z);
+        }
     }
 }
