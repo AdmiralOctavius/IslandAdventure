@@ -16,7 +16,7 @@ public class Movement : MonoBehaviour
     // Bool for making boat sink in island scene.
     public bool dockHit = false;
     public AudioSource bonk;
-
+    public GameObject GlobalAudio;
     // Start is called before the first frame update.
     private void Start()
     {
@@ -47,6 +47,7 @@ public class Movement : MonoBehaviour
         {
             dockHit = true;
             bonk.Play();
+            GlobalAudio.GetComponent<globalaudio>().PlayGameAudio();
         }
         if (dockHit)
         {
