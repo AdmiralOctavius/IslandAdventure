@@ -10,6 +10,7 @@ public class StartFog : MonoBehaviour
     public GameObject rightFog;
     // Makes the OnTriggerEnter only work once.
     bool fogStarted = false;
+    
     private void OnTriggerEnter(Collider other)
     {
         if (!fogStarted)
